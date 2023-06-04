@@ -3,7 +3,7 @@ const path = require("path");
 const { nanoid } = require("nanoid");
 // import { nanoid } from "nanoid";
 
-const contactsPath = path.join(__dirname, "contacts.json");
+const contactsPath = path.join(__dirname, "/db/contacts.json");
 
 async function listContacts() {
   const data = await fs.readFile(contactsPath);
@@ -11,7 +11,7 @@ async function listContacts() {
 }
 
 async function getContactById(id) {
-  const books = await getAll();
+  const contacts = await listContacts();
   const result = contacts.find((item) => item.id === id);
   return result || null;
 }
